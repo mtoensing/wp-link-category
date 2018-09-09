@@ -3,7 +3,7 @@
 /*
 Plugin Name: WP Link Category
 Description: Displays a notice that verified accounts exists
-GitHub Plugin URI: mtoensing/wp-verified-notice
+GitHub Plugin URI: mtoensing/wp-link-category
 Version:     1.9
 Author:      MarcDK
 Text Domain: wp-link-category
@@ -12,11 +12,16 @@ Author URI:  https://marc.tv
 License URI: GPL v2 - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
 
-function appendCategory( $content ) {
+function wan_load_textdomain() {
+	load_plugin_textdomain( 'wp-link-category', false, dirname( plugin_basename( __FILE__ ) ) . '/language/' );
+}
 
-	$categories = get_the_category();
-	$html       = '';
+add_filter( 'the_content', 'appendWPLCategory', 10 );
+add_action( 'plugins_loaded', 'wan_load_textdomain' );
 
+
+function appendWPLCategory( $content ) {
+	$html ='';
 	$category   = get_the_category();
 	$useCatLink = true;
 // If post has a category assigned.
@@ -56,16 +61,9 @@ function appendCategory( $content ) {
 		}
 	}
 
-	return $content . $html;
-}
+	$content = $content . $html;
 
-add_filter( 'the_content', 'appendCategory', 10 );
-add_action( 'plugins_loaded', 'wan_load_textdomain' );
-
-
-function wan_load_textdomain() {
-	load_plugin_textdomain( 'wp-link-category', false, dirname( plugin_basename( __FILE__ ) ) . '/language/' );
+	return $content;
 }
 
 ?>
-
