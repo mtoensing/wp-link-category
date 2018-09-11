@@ -23,7 +23,6 @@ add_action( 'plugins_loaded', 'wan_load_textdomain' );
 function appendWPLCategory( $content ) {
 	$html ='';
 	$category   = get_the_category();
-	$useCatLink = true;
 // If post has a category assigned.
 	if ( $category && is_single()) {
 		$category_display = '';
@@ -48,15 +47,11 @@ function appendWPLCategory( $content ) {
 			$category_link    = get_category_link( $category[0]->term_id );
 		}
 		// Display category
-		$link = sprintf( '<a href="%1$s">' . __( 'More about the topic %2$s.', 'wp-link-category' ) . '</a>', $category_link, htmlspecialchars( $category_display ) );
+		$link = sprintf( '<a class="post-category" href="%1$s">' . __( 'More about the topic %2$s.', 'wp-link-category' ) . '</a>', $category_link, htmlspecialchars( $category_display ) );
 
 		if ( ! empty( $category_display ) ) {
-			if ( $useCatLink == true && ! empty( $category_link ) ) {
-				$html .= '<span class="post-category">';
+			if ( ! empty( $category_link ) ) {
 				$html .= '<p>' . $link . '</p>';
-				$html .= '</span>';
-			} else {
-				$html .= '<span class="post-category"><p>' . $link . '</p></span>';
 			}
 		}
 	}
