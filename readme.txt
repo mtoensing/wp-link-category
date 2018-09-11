@@ -1,14 +1,14 @@
-=== WP Verified Notice ===
+=== Link Category ===
 Contributors: MarcDK
 Tags: marctv, categories
 Requires at least: 3.0
 Tested up to: 4.8
-Stable tag: 1.0
+Stable tag: 2.0
 GitHub Plugin URI: mtoensing/wp-verified-notice
 
 == Description ==
 
-Displays a notice at the comment for the verification process
+Displays a link to the category at the end of the post.
 
 == Installation ==
 
@@ -17,4 +17,4 @@ Displays a notice at the comment for the verification process
 
 == Changelog ==
 
-1.0 Initial version
+1.1 Initial version

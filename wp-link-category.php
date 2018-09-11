@@ -4,7 +4,7 @@
 Plugin Name: WP Link Category
 Description: Displays a notice that verified accounts exists
 GitHub Plugin URI: mtoensing/wp-link-category
-Version:     1.9
+Version:     2.0
 Author:      MarcDK
 Text Domain: wp-link-category
 Domain Path: /language
