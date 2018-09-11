@@ -25,7 +25,7 @@ function appendWPLCategory( $content ) {
 	$category   = get_the_category();
 	$useCatLink = true;
 // If post has a category assigned.
-	if ( $category ) {
+	if ( $category && is_single()) {
 		$category_display = '';
 		$category_link    = '';
 		if ( class_exists( 'WPSEO_Primary_Term' ) ) {
